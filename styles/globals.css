@@ -1,5 +1,9 @@
 /* Глобальные стили для проекта, их можно дополнять и менять по желанию */
 
+html{
+  height: 100%;
+}
+
 *,
 *::before,
 *::after {
@@ -9,7 +13,14 @@
 body {
   min-inline-size: 375px;
   max-inline-size: 1440px;
+  min-height: 100%;
   margin: 0 auto;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  font-family: var(--font-family, 'IBM Plex mono', monospace);
+  font-size: var(--font-size-text, 18px);
+  color: var(--text-color, #F1B2CE);
+  line-height: var(--line-hieght-def, 23.4px);
 }
 
 h1,
