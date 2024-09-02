@@ -3,7 +3,7 @@
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
   background-color: var(--bg-color, #000028);
-  background-image: var(--bg-img, url(../images/cover-image-dark.png));
+  background-image: var(--bg-img, url("../images/cover-image.png"));
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -15,12 +15,11 @@
 
 /*no focus + focus */
 .page-title{
-  /* font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem); */
-  font-size: 157px;
   font-weight: var(--font-weight-title, bold);
   line-height: 82.5%;
   text-shadow: 4px 4px 0 var(--accent-color, #ff0070);
-  color: var(--focus-color,#DB00FF);
+  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  color: var(--title-color,#DB00FF);
   text-transform: lowercase;
 }
 
@@ -30,12 +29,16 @@
 
 .contrast-text{
   background-color: var(--accent-color, #ff0070);
-  color: var(--dark-color, #000028);
+  color: var(--color-blue-1, #000028);
   font-size: var(--font-size-text, 18px);
 }
 
-.mr-bl-end-10{
+/* .mr-bl-end-10{
   margin-block-end: 10px;
+} */
+
+.font-weight-normal{
+  font-weight: normal;
 }
 
 .link{
@@ -46,7 +49,11 @@
 
 .section-title{
   font-size: var(--font-size-text, 18px);
-  color: var(--accent-color, #ff0070);
+  color: var(--section-title-color, #ff0070);
+}
+
+.section__text{
+  margin-block-start: 10px;
 }
 
 .max-inline-size{
@@ -69,16 +76,17 @@
 }
 
 .corner::before {
-  border-inline-end: 1px solid var(--accent-color, #ff0070);
-  border-block-start: 1px solid var(--accent-color, #ff0070);
+  
+  border-inline-end: 1px solid var(--color-corner, #ff0070);
+  border-block-start: 1px solid var(--color-corner, #ff0070);
   inset-inline-end: 20px;
   inset-block-start: 20px;
 
 }
 
 .corner::after {
-  border-inline-start: 1px solid var(--accent-color, #ff0070);
-  border-block-end: 1px solid var(--accent-color, #ff0070);
+  border-inline-start: 1px solid var(--color-corner, #ff0070);
+  border-block-end: 1px solid var(--color-corner, #ff0070);
   inset-inline-start: 20px;
   inset-block-end: 20px;
 }
@@ -119,7 +127,8 @@
 }
 
 .link:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  border-bottom: 1px solid var(--text-color, #F1B2CE);
 }
 
 .link:focus {
@@ -131,18 +140,19 @@
 }
 
 .header{
-  min-block-size: 100vh;
+  min-block-size: 668px;
+  block-size: 100vh;
   padding-block: 20px;
   padding-inline-end: 20px;
   position: relative;
   display: grid;
-  grid-template-rows: 299px 244px 185px;
+  /* grid-template-rows: 299px 244px 185px; */
   align-items: start;
 }
 
 .rec {
   position: absolute;
-  inset-inline-end: 28px;
+  inset-inline-end: 29px;
   inset-block-start: 20px;
   display: var(--rec-dysp, inline-flex);
   visibility: var(--rec-visibility, visible);
@@ -153,6 +163,7 @@
 
 .rec::before {
   content: "REC";
+  text-transform: uppercase;
   color: var(--accent-color, #ff0070);
   line-height: 24px;
 }
@@ -163,12 +174,15 @@
   block-size: 9px;
   display: inline-block;
   border-radius: 50%;
-  box-shadow: 0 0 2px 2px var(--accent-color, #ff0070);
+  /* box-shadow: 0 0 2px 2px var(--accent-color, #ff0070); */
+  box-shadow: 0 0 4px 2px var(--accent-color, #ff0070);
   background: var(--accent-color, #ff0070);
 }
 
 .header__theme-menu{
   justify-self: center;
+  margin-inline-start: 20px;
+  margin-block-end: 162px;
 }
 
 .header__theme-menu-list{
@@ -178,14 +192,13 @@
 }
 
 .header__title{
-  margin-inline-start: -10px;
   justify-self: start;
 }
 
 .header__subtitle{
   /* max-inline-size: clamp(364px, calc((100vw - 20px) / 2 - 10px) ,491px); */
   max-inline-size: 491px;
-  margin-inline-end: 10px;
+  /* margin-inline-end: 10px; */
   justify-self: end;
 }
 
@@ -204,7 +217,7 @@
 }
 
 .section-why{
-  min-block-size: 508px;
+  /* min-block-size: 508px; */
   margin-block-start: 60px;
   grid-template-columns: max-content 1fr;
   align-items: start;
@@ -235,6 +248,9 @@
   margin-block-end: 20px;
 }
 
+.section-how h4{
+  font-weight: normal;
+}
 
 .gallery-list {
   display: grid;
@@ -259,7 +275,8 @@
 }
 
 .footer{
-  min-block-size: 100vh;
+  min-block-size: 668px;
+  block-size: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -268,33 +285,27 @@
 
 @media (width < 1024px) {
 
-  .page-title{
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  }
-
-  .rec{
-    inset-inline-end: 18px;
-    inset-block-start: 10px;
-  }
-  
-  
-  .header{
-    grid-template-rows: clamp(18.68rem, 54.6800rem + -56.2500vw, 27.68rem) clamp(15.25rem, 19.4900rem + -6.6250vw, 16.31rem) clamp(11.56rem, 35.3200rem + -37.1250vw, 17.5rem);
+  .header__title{
+    margin-block-end: calc(-0.5625rem - clamp(-0.5625rem, 1.6875rem + -3.5156vw, 0rem));
+    margin-block-start: clamp(0rem, 11.0000rem + -17.1875vw, 2.75rem);
   }
 
   .header__theme-menu{
     justify-self: end;
-    align-self: center;
+    align-self: end;
+    margin-block-end: 131px;
   }
 
   .header__theme-menu-list {
     max-inline-size: 70px;
     flex-direction: column;
+    gap: 14px;
   }
 
   .header__subtitle{
     max-inline-size: clamp(364px, calc((100vw - 20px) / 2 - 10px) ,491px);
     margin-inline-end: 0;
+    margin-block-end: -5px;
   }
 
   .max-inline-size{
@@ -308,32 +319,34 @@
 
 @media (width < 768px) {
 
+  .rec{
+    inset-inline-end: calc(3.001rem - clamp(1.188rem, 2.4094rem + -2.5445vw, 1.813rem));
+    inset-block-start: calc(1.875rem - clamp(0.625rem, 1.8464rem + -2.5445vw, 1.25rem));
+  }
+
   .header, .footer{
-    padding-block: var(--from-20-to-10, calc(1.875rem - clamp(0.625rem, 1.8464rem + -2.5445vw, 1.25rem)));
-    padding-inline-end: var(--from-20-to-10, calc(1.875rem - clamp(0.625rem, 1.8464rem + -2.5445vw, 1.25rem)));
+    padding-block: var(--less-edge-page, calc(1.875rem - clamp(0.625rem, 1.8464rem + -2.5445vw, 1.25rem)));
+    padding-inline-end: var(--less-edge-page, calc(1.875rem - clamp(0.625rem, 1.8464rem + -2.5445vw, 1.25rem)));
+    padding-inline-start: clamp(0rem, 1.2214rem + -2.5445vw, 0.625rem);
   }
 
   .corner::before {
-    inset-inline-end: var(--from-20-to-10, calc(1.875rem - clamp(0.625rem, 1.8464rem + -2.5445vw, 1.25rem)));
-    inset-block-start: var(--from-20-to-10, calc(1.875rem - clamp(0.625rem, 1.8464rem + -2.5445vw, 1.25rem)));
+    inset-inline-end: var(--less-edge-page, calc(1.875rem - clamp(0.625rem, 1.8464rem + -2.5445vw, 1.25rem)));
+    inset-block-start: var(--less-edge-page, calc(1.875rem - clamp(0.625rem, 1.8464rem + -2.5445vw, 1.25rem)));
   }
   
   .corner::after {
-    inset-inline-start: var(--from-20-to-10, calc(1.875rem - clamp(0.625rem, 1.8464rem + -2.5445vw, 1.25rem)));
-    inset-block-end: var(--from-20-to-10, calc(1.875rem - clamp(0.625rem, 1.8464rem + -2.5445vw, 1.25rem)));
+    inset-inline-start: var(--less-edge-page, calc(1.875rem - clamp(0.625rem, 1.8464rem + -2.5445vw, 1.25rem)));
+    inset-block-end: var(--less-edge-page, calc(1.875rem - clamp(0.625rem, 1.8464rem + -2.5445vw, 1.25rem)));
   }
   
   .page-title{
     font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   }
 
-  .header{
-    grid-template-rows: calc(41.85rem - clamp(14.25rem, 40.3385rem + -54.3511vw, 27.6rem)) calc(31.75rem - clamp(15.437rem, 17.1489rem + -3.5664vw, 16.313rem)) calc(28.310000000000002rem - clamp(10.81rem, 23.8836rem + -27.2366vw, 17.5rem));
-    padding-inline-start: 10px;
-  }
-
-  .header__title{
-    margin-inline-start: 0;
+  .header__theme-menu{
+    /* margin-block-end: 23px; */
+    margin-block-end: calc(9.626000000000001rem - clamp(1.438rem, 14.6288rem + -27.4809vw, 8.188rem));
   }
 
   .header__subtitle{
@@ -341,11 +354,16 @@
   }
 
   .main{
-    padding-inline:  var(--from-20-to-10, calc(1.875rem - clamp(0.625rem, 1.8464rem + -2.5445vw, 1.25rem)));
+    padding-inline:  var(--less-edge-page, calc(1.875rem - clamp(0.625rem, 1.8464rem + -2.5445vw, 1.25rem)));
   }
 
   .section-why, .section-how{
     grid-template-columns: 1fr;
+  }
+  
+  .section-why{
+    /* margin-block-start: 40px; */
+    margin-block-start: calc(6.25rem - clamp(2.5rem, 4.9427rem + -5.0891vw, 3.75rem));
   }
 
   .max-inline-size{
@@ -353,11 +371,11 @@
   }
 
   .section{
-    margin-block-end: 50px;
+    margin-block-end: calc(8.125rem - clamp(3.125rem, 6.7891rem + -7.6336vw, 5rem));
   }
   
   .section:last-child{
-    margin-block-end: 40px;
+    margin-block-end: calc(6.25rem - clamp(2.5rem, 4.9427rem + -5.0891vw, 3.75rem));
   }
 
   .section-images{

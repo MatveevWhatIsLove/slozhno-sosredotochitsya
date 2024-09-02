@@ -9,51 +9,48 @@
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
-    /* Цвета */
-    --accent-color: #FF8DCB;
-    --dark-color: #353430;
-    --text-color: var(--dark-color, #353430);
-    --focus-color: #FFC2E6;
-    --bg-color: #FFF1F7;
-    --menu-btn-color: var( --dark-color, #353430);
-    --menu-btn-border:  var( --dark-color, #353430);
-    
+
+
+  /* привязка цветов */
+  --text-color: var(--color-blue-2, #353430);
+  --title-color: var( --color-beige-2, #ffc2e6);
+
+  --menu-btn-color: var(--color-blue-2, #353430);
+  --menu-btn-border: var(--color-blue-2-opas40, #35343040);
+
+
+  --accent-color: var(--color-pink, #ff8dcb);
+  --color-corner: var(--color-blue-2, #353430);
+  --section-title-color: var(--color-blue-2, #353430);
+
+  --bg-img: url("../images/cover-image-light.png");
+  --bg-color: var(--color-white, #fff1f7);
   
-    /*Шрифт*/
-    --font-family: 'IBM Plex mono', monospace;
-    --font-size-text: 18px;
-    --font-weight-title: bold;
-    --font-weight-reg: normal;
-    --line-hieght-def: 23.4px;
-  
-    /* настройки светлой темы*/
-    --bg-color: var(--bg-color, #FFF1F7);
-    --bg-img: url(../images/cover-image-light.png);
-    --rec-visibility: hidden;
-    --rec-dysp: none;
+  /* Для rec */
+  --rec-visibility: hidden;
+  --rec-dysp: none;
+
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --accent-color: #FF8DCB;
-    --dark-color: #353430;
-    --text-color: var(--dark-color, #353430);
-    --focus-color: #FFC2E6;
-    --bg-color: #FFF1F7;
-    --menu-btn-color: var( --dark-color, #353430);
-    --menu-btn-border:  var( --dark-color, #353430);
+
+
+    --text-color: var(--color-blue-2, #353430);
+    --title-color: var( --color-beige-2, #ffc2e6);
+  
+    --menu-btn-color: var(--color-blue-2, #353430);
+    --menu-btn-border: var(--color-blue-2-opas40, #35343040);
+  
+  
+    --accent-color: var(--color-pink, #ff8dcb);
+    --color-corner: var(--color-blue-2, #353430);
+    --section-title-color: var(--color-blue-2, #353430);
+  
+    --bg-img: url("../images/cover-image-light.png");
+    --bg-color: var(--color-white, #fff1f7);
     
-  
-    /*Шрифт*/
-    --font-family: 'IBM Plex mono', monospace;
-    --font-size-text: 18px;
-    --font-weight-title: bold;
-    --font-weight-reg: normal;
-    --line-hieght-def: 23.4px;
-  
-    /* настройки светлой темы*/
-    --bg-color: var(--bg-color, #FFF1F7);
-    --bg-img: url(../images/cover-image-light.png);
+    /* Для rec */
     --rec-visibility: hidden;
     --rec-dysp: none;
   }
