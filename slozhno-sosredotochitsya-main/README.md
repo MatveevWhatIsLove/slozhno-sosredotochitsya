@@ -1,1 +1,0 @@
-https://github.com/MatveevWhatIsLove/slozhno-sosredotochitsya.git
